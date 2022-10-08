@@ -1,0 +1,147 @@
+{% extends 'common_base1.html' %}
+{% block content %}
+
+
+
+<div class="banner-btm">
+    <div class="container">
+        <div class="banner-bottom-main">
+            <div class="col-md-4 banner-btmg1">
+
+               
+                <form action="#" method="post" class="banner_form">
+    {% csrf_token %}
+    <table class="table">
+        
+        <tr>
+            <td style="color: white;">UNAME</td>
+            <td><input type="text" name="uname" value="{{temp_user}}"></td>
+        </tr>
+        <tr>
+            <td style="color: white;">CHOOSE MEMBERSHIP PLAN</td>
+          <td><select name="plan" id="plan" onchange="getdate()">
+              <option>select</option>
+              {% for c in cc %}
+              <option values="{{c.0}}">{{c.1}}</option>
+            {% endfor %}
+          </select></td>
+      </tr>
+        <tr>
+              <td style="color: white;">ISSUED DATE</td>
+            <td><input type="text" name="idate" id="idate" ></td>
+        </tr>
+        
+        <tr>
+            <td style="color: white;">VALIDITY</td>
+          <td><input type="text" name="edate" id="edate" onclick="getval()" placeholder="click to generate expiry date"></td>
+      </tr>
+      
+      
+        
+        <tr>
+           <td><input type="submit" name="submit" value="ACCEPT"></td>
+        </tr>
+    </table>
+</form>   
+</div>
+<script>
+function getdate()
+{
+    var today=new Date();
+    var dd=today.getDate();
+    var mm=today.getMonth()+1; //]january is 0!
+    var yyyy=today.getFullYear();
+
+    if(dd<10)
+    {
+        dd='0'+dd
+    }
+    if(mm<10)
+    {
+        mm='0'+mm
+    }
+
+    today=mm + '/' + dd + '/' + yyyy;
+
+    document.getElementById('idate').value=today;
+    
+}
+function getval()
+{
+    debugger;
+    
+    var x=document.getElementById('plan');
+    var dat=x.options[x.selectedIndex].text;
+    
+    var m=document.getElementById('idate').value;
+    var mm=m.substring(0,2);
+    var yyyy=m.substring(6,10);
+    var dd=m.substring(3,5)
+    
+    if(dat == "platinum")
+    {
+       
+       var c=Number(9);
+       var dt=Number(c)+Number(mm);
+       
+       if(dt>12)
+       {   mm=c;
+            dt=Number(dt)-12;
+           yyyy=Number(yyyy)+1;
+       }
+       var ld=dt +'/'+dd+'/'+yyyy;
+       document.getElementById('edate').value=ld;
+
+    
+    }
+    if(dat == "gold")
+    {
+       
+       var c=Number(6);
+       var dt=Number(c)+Number(mm);
+       
+       if(dt>12)
+       {   mm=c;
+            dt=Number(dt)-12;
+           yyyy=Number(yyyy)+1;
+       }
+       var ld=dt +'/'+dd+'/'+yyyy;
+       document.getElementById('edate').value=ld;
+
+    
+    }
+    if(dat == "silver")
+    {
+       
+       var c=Number(3);
+       var dt=Number(c)+Number(mm);
+       
+       if(dt>12)
+       {   mm=c;
+            dt=Number(dt)-12;
+           yyyy=Number(yyyy)+1;
+       }
+       var ld=dt +'/'+dd+'/'+yyyy;
+       document.getElementById('edate').value=ld;
+
+    
+    }
+    if(dat == "diamond")
+    {
+       
+       var c=Number(12);
+       var dt=Number(c)+Number(mm);
+       
+       if(dt>12)
+       {   mm=c;
+            dt=Number(dt)-12;
+           yyyy=Number(yyyy)+1;
+       }
+       var ld=dt +'/'+dd+'/'+yyyy;
+       document.getElementById('edate').value=ld;
+
+    
+    }
+}
+</script>
+{% endblock %}

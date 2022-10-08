@@ -1,0 +1,68 @@
+{% extends 'admin_base1.html' %}
+{% block content %}
+
+
+
+<div class="banner-btm">
+    <div class="container">
+        <div class="banner-bottom-main">
+            <div class="col-md-4 banner-btmg1">
+
+               
+                <form method="post" class="banner_form">
+    {% csrf_token %}
+   
+<div id="ss" ><!--style="display: none"  -->
+   
+<table class="table" border="2" cellpadding="5" width="700px" >
+    <tr>
+           
+          
+            <td style="color: rgb(233, 10, 10);">NAME</td>
+            
+            <td style="color: rgb(233, 10, 10);">ADDRESS</td>
+            <!-- <td style="color: rgb(233, 10, 10);">DATE OF BIRTH</td> -->
+          
+            <td style="color: rgb(233, 10, 10);">PHONE NUMBER</td>
+            <td style="color: rgb(233, 10, 10);">EMAIL</td>
+            <td style="color: rgb(233, 10, 10);">USER NAME</td>
+            <td style="color: rgb(233, 10, 10);">ACTION</td>
+            
+           
+        </tr>
+        {% for d in data %}
+        <tr>
+            <td style="color: white;">{{d.0}}</td>
+            <td style="color: white;">{{d.1}}</td>
+            <td style="color: white;">{{d.2}}</td>
+            <td style="color: white;">{{d.3}}</td>
+           
+            <td style="color: white;">{{d.4}}</td> 
+           
+           <td style="color: white;"><a style="color: yellow;" href="/user_accept/?uname={{d.4}}">Approve</a></td>
+
+           
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+ <script>
+// function sh() {
+//     var x=document.getElementById("ss");
+//     if(x.style.display==="none")
+//     {
+//         x.style.display="block";
+//     }
+//     else
+//     {
+//         x.style.display="none";
+//     }
+    
+   
+// }
+</script>
+
+</div>
+
+
+{% endblock %}

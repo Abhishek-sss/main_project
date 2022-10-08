@@ -1,0 +1,41 @@
+{% extends 'admin_base1.html' %}
+{% block content %}
+
+<div class="banner-btm">
+    <div class="container">
+        <div class="banner-bottom-main">
+            <div class="col-md-4 banner-btmg1">
+
+                
+                <form enctype="multipart/form-data" method="post" class="banner_form"> 
+    {% csrf_token %}
+    <table class="table">
+        
+       
+        <tr>
+            <td style="color: white;">Category</td>
+          <td><select name="cid">
+              <option value="select">Select</option>
+              {% for d in data %}
+              <option value="{{d.0}}">{{d.1}}</option>
+              {% endfor %}
+          </select>
+             </td>
+      </tr>
+        
+      
+        
+        <tr>
+              <td style="color: white;">Image</td>
+              <td><input type="file" name="cati" id="cati"></td>    
+        </tr>
+        <tr>
+            <td style="color: white;"></td>
+            <td><input type="submit" name="sub"></td>    
+      </tr>
+    </table>
+    {{ss}}
+</form>   
+</div>
+
+{% endblock %}

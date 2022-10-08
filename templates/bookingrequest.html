@@ -1,0 +1,47 @@
+{% extends 'worker_base1.html' %}
+{% block content %}
+
+
+<div class="banner-btm">
+    <div class="container">
+        <div class="banner-bottom-main">
+            <div class="col-md-4 banner-btmg1">
+
+         
+       
+        <form action="#" method="POST" class="banner_form">
+                {% csrf_token %}
+                <table class="table" border="2" cellpadding="5" width="700px">
+                        <tr>
+                                
+                                <td style="color: rgb(233, 10, 10);">BOOKING DATE</td>
+                                <td style="color: rgb(233, 10, 10);">SERVICE DATE</td>
+                                <td style="color: rgb(233, 10, 10);">STATUS</td>
+                               
+                                <td style="color: rgb(233, 10, 10);">DATE OF COMPLETION</td>
+                                <td style="color: rgb(233, 10, 10);">USERNAME</td>
+                                
+                            </tr>
+                            {% for d in data %}
+                            <tr>
+                               
+                                <td style="color: white;">{{d.1}}</td>
+                                <td style="color: white;">{{d.2}}</td>
+                                <td style="color: white;">{{d.3}}</td>  
+                                <td style="color: white;">{{d.4}}</td>
+                               
+                                <td style="color: white;">{{d.6}}</td>
+                               
+                                    <td><a href="/bookingrequest/?id={{d.0}}&st=approve">ACCEPT</a></td>
+                               
+                            
+                                    <td><a href="/bookingrequest/?id={{d.0}}&st=reject">REJECT</a></td>
+                               </tr>
+                            {% endfor %}
+                        </table>
+                    </form>   
+                </div>
+               
+                
+  
+{% endblock %}

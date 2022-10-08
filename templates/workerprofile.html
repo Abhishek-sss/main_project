@@ -1,0 +1,61 @@
+{% extends 'worker_base1.html' %}
+{% block content %}
+
+
+
+
+<div class="banner-btm">
+    <div class="container">
+        <div class="banner-bottom-main">
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+            <div style="background: blue;width: 100%;">
+<center>
+                <form action="#" method="post" class="banner_form" enctype="multipart/form-data">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    {% csrf_token %}
+                    <table style="border: solid red 5px;" >
+                    {% for d in data %}
+                    <tr>  <td style="color: rgb(233, 10, 10);">WORKER ID</td><td style="color: white;">{{d.0}}</td> </tr> 
+                    <tr>  <td style="color: rgb(233, 10, 10);">WORKER NAME</td><td style="color: white;">{{d.1}}</td></tr>
+                    <tr>  <td style="color: rgb(233, 10, 10);">NAME</td><td style="color: white;">{{d.2}}</td></tr>
+                    <tr>  <td style="color: rgb(233, 10, 10);">ADDRESS</td><td style="color: white;">{{d.5}}</td></tr>
+                    <tr>  <td style="color: rgb(233, 10, 10);">DATE OF BIRTH</td><td style="color: white;">{{d.6}}</td></tr>
+                    <tr>  <td style="color: rgb(233, 10, 10);">GENDER</td><td style="color: white;">{{d.7}}</td> </tr> 
+                    
+                    <tr>  <td style="color: rgb(233, 10, 10);">Display Picture</td><td style="color: white;"><img width="120px" height="120px" src="../static{{d.3}}"></td> </tr> 
+          
+                    <tr>  <td style="color: rgb(233, 10, 10);">PHONE NUMBER</td><td style="color: white;">{{d.8}}</td> </tr> 
+                    <tr>  <td style="color: rgb(233, 10, 10);">EMAIL ID</td><td style="color: white;">{{d.9}}</td> </tr>
+                    <tr>  <td style="color: rgb(233, 10, 10);">CATEGORY</td><td style="color: white;">{{d.4}}</td> </tr> 
+                    <tr>  <td style="color: rgb(233, 10, 10);">EXPERIENCE</td><td style="color: white;">{{d.10}}</td> </tr>  
+          
+                    
+                
+                
+                      
+                    
+                
+                      </tr>
+                      
+                
+                <tr>
+                
+            
+          <tr>
+          <td colspan="2"><center><input type="submit" name="submit" value="edit"></center></td>
+          </tr>
+          
+          {% endfor %}
+          
+          
+          
+          
+          
+              </table>
+          </center>
+          </form>   
+          </div>
+          {% endblock %}

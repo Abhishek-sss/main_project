@@ -1,0 +1,59 @@
+{% extends 'admin_base1.html' %}
+{% block content %}
+
+
+
+<div class="banner-btm">
+    <div class="container">
+        <div class="banner-bottom-main">
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+            <div style="background: blue;width: 100%;">
+<center>
+                <form action="#" method="post" class="banner_form" enctype="multipart/form-data">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+    {% csrf_token %}
+    
+        <table  style="border-color: red;border: solid red;text-align: center;vertical-align: middle" cellspacing="5"  cellpadding="5" width="750" >
+            <tr>
+                    <td style="color: rgb(233, 10, 10);">WORKERID</td>
+                    <td style="color: rgb(233, 10, 10);">WORKERNAME</td>
+                    <td style="color: rgb(233, 10, 10);">NAME</td>
+                    <td style="color: rgb(233, 10, 10);">DISPLAY PICTURE</td>
+                    <td style="color: rgb(233, 10, 10);">CATEGORY</td>
+                    <td style="color: rgb(233, 10, 10);">ADDRESS</td>
+                    <!-- <td style="color: rgb(233, 10, 10);">DATE OF BIRTH</td> -->
+                    <td style="color: rgb(233, 10, 10);">GENDER</td>
+                    <td style="color: rgb(233, 10, 10);">PHONE NUMBER</td>
+                    <td style="color: rgb(233, 10, 10);">EMAIL</td>
+                    <td style="color: rgb(233, 10, 10);">EXPERIENCE</td>
+                    
+                   
+                </tr>
+                {% for d in data %}
+                <tr>
+                    <td style="color: white;">{{d.0}}</td>
+                    <td style="color: white;">{{d.1}}</td>
+                    <td style="color: white;">{{d.2}}</td>
+                    <td style="color: white;"><img width="120px" height="120px" src="../static{{d.3}}"></td>
+                    <td style="color: white;">{{d.4}}</td> 
+                    <td style="color: white;">{{d.5}}</td>
+                   <!-- <td style="color: white;">{{d.6}}</td>-->
+                    <td style="color: white;">{{d.7}}</td>
+                    <td style="color: white;">{{d.8}}</td> 
+                    <td style="color: white;">{{d.9}}</td>
+                    <td style="color: white;">{{d.10}}</td>
+                </tr>
+                {% endfor %}
+
+
+
+
+
+            </table>
+        </center>
+        </form>   
+        </div>
+        {% endblock %}

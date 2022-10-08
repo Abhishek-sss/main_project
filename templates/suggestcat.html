@@ -1,0 +1,26 @@
+{% extends 'user_base1.html' %}
+{% block content %}
+
+
+<div class="banner-btm">
+    <div class="container">
+        <div class="banner-bottom-main">
+            <div class="col-md-4 banner-btmg1">
+
+                    <center><h1 style="color:red"><b>{{msg}}<b></h1></center>
+                <form action="#" method="post" class="banner_form">
+    {% csrf_token %}
+    <table class="table">
+        
+        <tr>
+              <td style="color: white;">CATEGORY NAME</td><td><input type="text" name="catgry" pattern="[a-zA-Z\s]{1,32}" required=""></td>
+        </tr>
+      
+        <tr>
+           <td><input type="submit" name="submit" value="submit"></td>
+        </tr>
+    </table>
+</form>   
+</div>
+
+{% endblock %}

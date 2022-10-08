@@ -1,0 +1,48 @@
+{% extends 'admin_base1.html' %}
+{% block content %}
+
+
+
+<div class="banner-btm">
+    <div class="container">
+        <div class="banner-bottom-main">
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+            <div style="background: blue;width: 100%;">
+<center>
+                <form action="#" method="post" class="banner_form" enctype="multipart/form-data">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+    {% csrf_token %}
+    <table  style="border-color: red;border: solid red;text-align: center;vertical-align: middle" cellspacing="10"  cellpadding="5" width="100%" >
+        <tr>
+            <td style="color: rgb(233, 10, 10);">USERID</td>
+            <td style="color: rgb(233, 10, 10);">USER NAME</td>
+            <td style="color: rgb(233, 10, 10);">NAME</td>
+            <td style="color: rgb(233, 10, 10);">ADDRESS</td>
+            <td style="color: rgb(233, 10, 10);">DATE OF BIRTH</td>
+            <td style="color: rgb(233, 10, 10);">GENDER</td>
+            <td style="color: rgb(233, 10, 10);">PHOTO</td>
+            <td style="color: rgb(233, 10, 10);">E-MAIL</td>
+            <td style="color: rgb(233, 10, 10);">PHONE NUMBER</td>
+        </tr>
+        {% for d in data %}
+        <tr>
+            <td style="color: white;width: 20px">{{d.0}}</td>
+            <td style="color: white;">{{d.1}}</td>
+            <td style="color: white;">{{d.2}}</td>
+            <td style="color: white;width: 80px">{{d.3}}</td>
+            <td style="color: white;">{{d.4}}</td>
+            <td style="color: white;">{{d.5}}</td>
+            <td style="color: white;"><img width="120px" height="120px" src="../static{{d.8}}"></td>
+            <td style="color: white;">{{d.7}}</td>
+            <td style="color: white;">{{d.6}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</center>
+</form>   
+</div>
+{% endblock %}

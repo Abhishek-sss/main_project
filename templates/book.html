@@ -1,0 +1,46 @@
+{% extends 'user_base1.html' %}
+{% block content %}
+
+<div class="banner-btm">
+    <div class="container">
+        <div class="banner-bottom-main">
+            <div class="col-md-4 banner-btmg1">
+
+               
+                <form action="#" method="post" class="banner_form" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table">
+            <!--<center><h1 style="color:yellow;"><b>{{msg}}</b></h1></center>-->
+       
+        <tr>
+              <td style="color: white;" >FROM DATE</td>
+            <td><input type="date" id="date2" name="fdate" min="2018-11-09" onclick="da()" max="2019-11-31"></td>
+        </tr>
+       
+        <tr>
+              <td style="color: white;">TO DATE</td>
+              <td><input type="date" id="date1" name="tdate" onclick="dda()" min="2018-11-09" max="2019-11-31"></td>
+          </tr> 
+        <tr>
+           <td><input type="submit" name="submit"  value="BOOK"></td>
+        </tr>
+    </table>
+    <script>
+        function da()
+        {
+            let today = new Date().toISOString().substr(0, 10);
+            document.querySelector("#today").min = today;
+        }
+        function dda()
+        {
+            var x=document.getElementById("date2")
+            document.querySelector("#today").max = int(x)+1;
+        }
+        /*function disp()
+        {
+            alert(" BOOKING SUCCESSFULL")
+        }*/
+    </script>
+</form>   
+</div>
+{% endblock %}

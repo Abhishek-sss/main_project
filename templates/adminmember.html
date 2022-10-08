@@ -1,0 +1,40 @@
+{% extends 'admin_base1.html' %}
+{% block content %}
+
+<div class="banner-btm">
+    <div class="container">
+        <div class="banner-bottom-main">
+            <div class="col-md-4 banner-btmg1">
+
+                
+                <form action="#" method="post" class="banner_form">
+    {% csrf_token %}
+    <table class="table">
+        
+       
+        <tr>
+            <td style="color: white;">SCHEME</td>
+          <td><input type="text" name="scheme">
+             </td>
+      </tr>
+        
+      
+        
+        <tr>
+              <td style="color: white;">VALIDITY</td>
+              <td><input type="number" name="validity"></td>    
+        </tr>
+        <tr>
+              <td style="color: white;">PRICE</td>
+            <td><input type="number" name="price"></td>
+        </tr>
+       
+        <tr>
+           <td><input type="submit" name="submit" value="ADD"></td>
+        </tr>
+    </table>
+    {{ss}}
+</form>   
+</div>
+
+{% endblock %}

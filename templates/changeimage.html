@@ -1,0 +1,14 @@
+{% extends 'user_base1.html' %}
+{% block content %}
+<br><br>
+{% for d in data %}
+<center><img src=../static{{d.8}} alt="image" style="width: 120px;height:120px"></center>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <br><br>
+    <center><input type="file" name="img" required="">
+    <input type="submit" name="changeimg" value="change"></center>
+</form>
+{% endfor %}
+{% endblock %}

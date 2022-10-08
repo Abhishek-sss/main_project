@@ -1,0 +1,77 @@
+{% extends 'user_base1.html' %}
+{% block content %}
+
+
+
+<div class="banner-btm">
+    <div class="container">
+        <div class="banner-bottom-main">
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+            <div style="background: blue;width: 100%;">
+<center>
+                <form action="#" method="post" class="banner_form" enctype="multipart/form-data">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    {% csrf_token %}
+                    <table style="border: solid red 5px;" >
+                            <!-- <tr>
+                                    <td style="color: rgb(233, 10, 10);">uname</td>
+                                    <td style="color: rgb(233, 10, 10);">address</td>
+                                    <td style="color: rgb(233, 10, 10);">dob</td>
+                                    <td style="color: rgb(233, 10, 10);">gender</td>
+                                    
+                                </tr>
+                                {% for d in data %}
+                                <tr>
+                                    <td style="color: white;">{{d.1}}</td>
+                                    <td style="color: white;">{{d.2}}</td>
+                                    <td style="color: white;">{{d.3}}</td>
+                                    <td style="color: white;">{{d.4}}</td>    
+                                </tr>
+                                {% endfor %}
+                          
+        <tr>
+             <td><input type="submit" name="submit" value="submit"></td>
+        </tr> -->
+        {% for d in data %}
+          <tr>  <td style="color: rgb(233, 10, 10);">USER ID</td><td style="color: white;">{{d.0}}</td> </tr> 
+          <tr>  <td style="color: rgb(233, 10, 10);">USER NAME</td><td style="color: white;">{{d.1}}</td></tr>
+          <tr>  <td style="color: rgb(233, 10, 10);">NAME</td><td style="color: white;">{{d.2}}</td></tr>
+          <tr>  <td style="color: rgb(233, 10, 10);">ADDRESS</td><td style="color: white;">{{d.3}}</td></tr>
+          <tr>  <td style="color: rgb(233, 10, 10);">DATE OF BIRTH</td><td style="color: white;">{{d.4}}</td></tr>
+          <tr>  <td style="color: rgb(233, 10, 10);">GENDER</td><td style="color: white;">{{d.5}}</td> </tr> 
+          
+          <tr>  <td style="color: rgb(233, 10, 10);">Display Picture</td><td style="color: white;"><img width="120px" height="120px" src="../static{{d.8}}"></td> </tr> 
+
+          <tr>  <td style="color: rgb(233, 10, 10);">PHONE NUMBER</td><td style="color: white;">{{d.6}}</td> </tr> 
+          <tr>  <td style="color: rgb(233, 10, 10);">EMAIL ID</td><td style="color: white;">{{d.7}}</td> </tr> 
+
+          
+      
+      
+            
+          
+      
+            </tr>
+            
+      
+      <tr>
+      
+  
+<tr>
+<td colspan="2"><center><input type="submit" name="submit" value="edit"></center></td>
+</tr>
+
+{% endfor %}
+
+
+
+
+
+    </table>
+</center>
+</form>   
+</div>
+{% endblock %}

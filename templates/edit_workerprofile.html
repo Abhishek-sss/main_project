@@ -1,0 +1,42 @@
+{% extends 'worker_base1.html' %}
+{% block content %}
+
+
+
+<div class="banner-btm">
+    <div class="container">
+        <div class="banner-bottom-main">
+            <div class="col-md-4 banner-btmg1">
+
+                <form action="#" method="post" class="banner_form">
+                    
+                    {% csrf_token %}
+        <table class="table" border="2" cellpadding="5" width="700px">
+        {% for d in data %}
+          <tr>  <td style="color: rgb(233, 10, 10);">USER ID</td><td style="color: white;">{{d.0}}</td> </tr> 
+          <tr>  <td style="color: rgb(233, 10, 10);">WORKER NAME</td><td style="color: white;"><input type="text" name="Wname" pattern="[a-zA-Z\s]{1,32}" required="" value="{{d.1}}"></td></tr>
+          <tr>  <td style="color: rgb(233, 10, 10);">NAME</td><td style="color: rgb(255, 255, 255);"><input type="text" name="name"  pattern="[a-zA-Z0-9\s]{1,32}" required="" value="{{d.2}}"></td></tr>
+         <!-- <tr>  <td style="color: rgb(233, 10, 10);">CATEGORY</td><td style="color: white;"><input type="text" name="Category" value="{{d.4}}"></td></tr>-->
+          <tr>  <td style="color: rgb(233, 10, 10);">ADDRESS</td><td style="color: white;"><input type="text" name="Address" pattern="[a-zA-Z0-9\s]{1,200}" required="" value="{{d.5}}"></td></tr>
+          <tr>  <td style="color: rgb(233, 10, 10);">DATE OF BIRTH</td><td style="color:red;"><input type="text" name="Dob"  min="0000-00-00" max="2015-12-31" required="" value="{{d.6}}"></td></tr>
+          <tr>  <td style="color: rgb(233, 10, 10);">GENDER</td><td style="color: white;"><input type="text" name="Gender"  value="{{d.7}}"></td> </tr> 
+          <tr>  <td style="color: rgb(233, 10, 10);">PHONE NUMBER</td><td style="color: white;"><input type="text" name="Phn" pattern="[6-9]{1}[0-9]{9}" required="" value="{{d.8}}"></td> </tr>   
+          <tr>  <td style="color: rgb(233, 10, 10);">EMAIL ID</td><td style="color: white;"><input type="text" name="Email" required="" value="{{d.9}}"></td> </tr>
+          <tr>  <td style="color: rgb(233, 10, 10);">EXPERIENCE</td><td style="color: white;"><input type="text" name="Experience" min="0" max="5" required="" value="{{d.10}}"></td></tr> 
+           
+  
+<tr>
+<td><input type="submit" name="submit" value="save"></td>
+<td><input type="submit" name="changeimg" value="change image"></td>
+</tr>
+
+{% endfor %}
+
+
+
+
+
+    </table>
+</form>   
+</div>
+{% endblock %}
